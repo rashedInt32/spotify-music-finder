@@ -4,6 +4,7 @@ $banner-height: 300px!default;
 $banner-padding: 60px 0!default;
 
 $banner-image-height: 200px;
+$banner-img-max-width: 400px;
 
 .banner {
   position: relative;
@@ -20,6 +21,11 @@ $banner-image-height: 200px;
     height: $banner-image-height;
   }
 
+  img {
+    max-width: $banner-img-max-width;
+    margin-bottom: 40px;
+  }
+
   h2, small, p {color: $white;}
   h2 {
     padding-top: 10px;
@@ -27,6 +33,26 @@ $banner-image-height: 200px;
 
   h5 {
     color: $white;
+  }
+
+  .artist {
+    &:last-child {
+      small {display: none;}
+    }
+  }
+
+  .back {
+    position: absolute;
+    left: 30px;
+    top: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: $secondary;
+    font-weight: bold;
+  }
+
+  .single {
+    padding-bottom: 100px;
   }
 
 }

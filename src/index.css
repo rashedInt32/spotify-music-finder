@@ -7096,12 +7096,27 @@ header {
   .banner .image {
     width: 100%;
     height: 200px; }
+  .banner img {
+    max-width: 400px;
+    margin-bottom: 40px; }
   .banner h2, .banner small, .banner p {
     color: #FFFFFF; }
   .banner h2 {
     padding-top: 10px; }
   .banner h5 {
     color: #FFFFFF; }
+  .banner .artist:last-child small {
+    display: none; }
+  .banner .back {
+    position: absolute;
+    left: 30px;
+    top: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #059BAD;
+    font-weight: bold; }
+  .banner .single {
+    padding-bottom: 100px; }
 
 .track-card {
   position: relative;
