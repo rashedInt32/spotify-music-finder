@@ -1,0 +1,48 @@
+$card-padding: 20px!default;
+$card-border-radius: 4px!default;
+$card-shadow: 0 0px 0px 1px rgba($secondary, .2);
+$card-shadow-hover: 0 0px 2px 3px rgba($secondary, .3);
+$card-margin: 30px!default;
+$card-bg: darken($primary, 3%);
+
+$card-image-size: 100px!default;
+$card-name-padding: 5px!default;
+$card-fw: 700!default;
+
+$card-image-margin: 20px!default;
+
+.playlist-card {
+  position: relative;
+  padding: 20px;
+  border-radius: $card-border-radius;
+  box-shadow: $card-shadow;
+  margin-bottom: $card-margin;
+  background: $card-bg;
+  cursor: pointer;
+  @include transition(box-shadow .3s ease);
+
+  &:hover {
+    box-shadow: $card-shadow-hover;
+    h5 {
+      color: $secondary;
+    }
+  }
+
+  .image {
+    width: $card-image-size;
+    height: $card-image-size;
+    border-radius: $card-border-radius;
+    flex: 0 0 $card-image-size;
+    margin-right: $card-image-margin;
+  }
+
+  h5 {
+    color: $white;
+    padding-bottom: $card-name-padding;
+    font-weight: $card-fw;
+    @include transition(color .3s ease);
+  }
+  p {
+    color: $white;
+  }
+}

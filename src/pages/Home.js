@@ -5,8 +5,11 @@ import SpotifyWebApi from "spotify-web-api-js";
 import { getToken } from "../utils/getToken";
 
 import Layout from "../hoc/Layout";
+import PlaylistCard from "../components/cards/PlaylistCard";
+import Row from "../components/ui/Row";
+import Col from "../components/ui/Col";
 
-function Home({history}) {
+function Home({ history }) {
   const [playlists, setPlaylists] = useState({
     loading: false,
     message: "",
@@ -40,12 +43,23 @@ function Home({history}) {
       items: response.playlists.items
     });
 
-    history.push('/');
+    history.push("/");
   };
 
   return (
     <Layout loading={playlists.loading}>
-      <h3>{playlists.message}</h3>
+      <h3 className="pb-20">{playlists.message}</h3>
+      <Row>
+        {playlists.items.map(playlist => (
+          <Col takes={6} key={playlist.id}>
+            <PlaylistCard
+              name={playlist.name}
+              image={playlist.images[0].url}
+              numberOfTrack={playlist.tracks.total}
+            />
+          </Col>
+        ))}
+      </Row>
     </Layout>
   );
 }
