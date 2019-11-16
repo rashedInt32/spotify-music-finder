@@ -31,8 +31,8 @@ function Playlist({ history, match, location }) {
     });
   };
 
-  const image = playlist.data.images;
-  console.log(image)
+  const handleClickTrack = (track) => history.push(`/track/${track.id}`, { track });
+
 
   const { images, name, owner, description, tracks } = playlist.data;
 
@@ -45,16 +45,19 @@ function Playlist({ history, match, location }) {
         artist={owner && owner.display_name}
         description={description}
       />
+
       <Layout loading={playlist.loading}>
-      <h3 className="pb-20">Tracks</h3>
-        {tracks && tracks.items.map(({track}) =>
-          <Track
-            key={track.id}
-            name={track.name}
-            album={track.album.name}
-            artists={track.artists}
-          />
-        )}
+        <h3 className="pb-20">Tracks</h3>
+        {tracks &&
+          tracks.items.map(({ track }) => (
+            <Track
+              key={track.id}
+              name={track.name}
+              album={track.album.name}
+              artists={track.artists}
+              onClickTrack={() => handleClickTrack(track)}
+            />
+          ))}
       </Layout>
     </>
   );

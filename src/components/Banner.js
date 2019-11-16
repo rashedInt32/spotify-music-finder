@@ -4,8 +4,6 @@ import Loader from "../components/Loader";
 import Row from "../components/ui/Row";
 import Col from "../components/ui/Col";
 
-//Name, image, artist name and popularity
-
 const Banner = ({ image, name, artist, description, loading }) => {
   const style = {
     background: `url(${image}) center center no-repeat`,

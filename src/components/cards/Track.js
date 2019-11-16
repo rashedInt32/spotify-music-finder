@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Track = ({ name, album, artists }) => {
+const Track = ({ name, album, artists, onClickTrack }) => {
   return (
-    <div className="track-card">
+    <div className="track-card" onClick={onClickTrack}>
       <h6>{name}</h6>
       <div className="meta">
         <span>Album: {album}</span>
