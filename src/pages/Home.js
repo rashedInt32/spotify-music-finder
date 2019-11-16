@@ -1,19 +1,21 @@
-import React, {useEffect, useState} from 'react';
-import to from 'await-to-js';
-import SpotifyWebApi from 'spotify-web-api-js';
+import React, { useEffect, useState } from "react";
+import to from "await-to-js";
+import SpotifyWebApi from "spotify-web-api-js";
 
-import { getToken } from '../utils/getToken';
+import { getToken } from "../utils/getToken";
 
-function Home() {
+import Layout from "../hoc/Layout";
+
+function Home({history}) {
   const [playlists, setPlaylists] = useState({
     loading: false,
-    message: '',
+    message: "",
     items: []
   });
 
   useEffect(() => {
     getPlaylist();
-  },[]);
+  }, []);
 
   const spotifyApi = new SpotifyWebApi();
 
@@ -25,7 +27,9 @@ function Home() {
 
     const [, { country }] = await to(spotifyApi.getMe());
 
-    const [err, response] = await to(spotifyApi.getFeaturedPlaylists({ country }));
+    const [err, response] = await to(
+      spotifyApi.getFeaturedPlaylists({ country })
+    );
 
     if (err) return;
 
@@ -35,15 +39,15 @@ function Home() {
       message: response.message,
       items: response.playlists.items
     });
+
+    history.push('/');
   };
 
   return (
-    <div className="container">
-      <div className="playlists-wrapper">
-        <h3>{playlists.message}</h3>
-      </div>
-    </div>
-  )
-};
+    <Layout loading={playlists.loading}>
+      <h3>{playlists.message}</h3>
+    </Layout>
+  );
+}
 
 export default Home;

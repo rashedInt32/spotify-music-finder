@@ -8117,6 +8117,10 @@ header {
   background: #0a0d1f;
   box-shadow: 0 0 20px 5px rgba(5, 155, 173, 0.4); }
 
+.layout {
+  position: relative;
+  padding: 60px 0; }
+
 .embed-responsive {
   position: relative;
   display: block;
