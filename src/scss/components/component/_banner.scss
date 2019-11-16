@@ -1,0 +1,28 @@
+$banner-bg: linear-gradient(to bottom,
+rgba($secondary, .5),  $primary)!default;
+$banner-height: 300px!default;
+$banner-padding: 60px 0!default;
+
+$banner-image-height: 200px;
+
+.banner {
+  position: relative;
+  background-image: $banner-bg;
+  height: $banner-height;
+  padding: $banner-padding;
+
+  .loader {
+    border-color: $primary $primary $primary transparent;
+  }
+
+  .image {
+    width: 100%;
+    height: $banner-image-height;
+  }
+
+  h2, small, p {color: $white;}
+  h2 {
+    padding-top: 10px;
+  }
+
+}

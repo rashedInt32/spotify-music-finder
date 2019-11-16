@@ -17,6 +17,8 @@ function Home({ history }) {
     items: []
   });
 
+  const [token, setToken] = useState("");
+
   useEffect(() => {
     getFeaturedPlaylist();
   }, []);
@@ -25,8 +27,9 @@ function Home({ history }) {
   const getFeaturedPlaylist = async () => {
     setPlaylists({ ...playlists, loading: true });
 
-    const token = getToken();
-    spotifyApi.setAccessToken(token);
+    const getTokenFromHash = getToken();
+    spotifyApi.setAccessToken(getTokenFromHash);
+    setToken(getTokenFromHash);
 
     const [, { country }] = await to(spotifyApi.getMe());
 
@@ -43,10 +46,10 @@ function Home({ history }) {
       items: response.playlists.items
     });
 
-    //history.push("/");
+    history.push("/");
   };
 
-  const handleCardClick = (id) => history.push(`/playlist/${id}`)
+  const handleCardClick = (id) => history.push(`/playlist/${id}`, { token });
 
   return (
     <Layout loading={playlists.loading}>

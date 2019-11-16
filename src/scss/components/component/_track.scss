@@ -1,0 +1,49 @@
+$track-padding: 10px 20px!default;
+$track-border-radius: 4px!default;
+$track-shadow: 0 0px 0px 1px rgba($secondary, .2);
+$track-shadow-hover: 0 0px 2px 3px rgba($secondary, .3);
+$track-margin: 15px!default;
+$track-bg: darken($primary, 3%);
+
+.track-card {
+  position: relative;
+  padding: $track-padding;
+  box-shadow: $track-shadow;
+  border-radius: $track-border-radius;
+  margin-bottom: $track-margin;
+  cursor: pointer;
+  background: $track-bg;
+  @include transition(box-shadow .3s ease);
+
+  &:hover {
+    box-shadow: $track-shadow-hover;
+  }
+
+  h6 {color: $white;}
+
+  .meta {
+    padding-top: 10px;
+    font-size: 14px;
+    > span {
+      position: relative;
+      color: $secondary;
+      margin-right: 25px;
+      &:last-child {
+        &:before {
+          display: none;
+        }
+      }
+      &:before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $secondary;
+        position: absolute;
+        right: -15px;
+        top: 5px;
+      }
+
+    }
+  }
+}
