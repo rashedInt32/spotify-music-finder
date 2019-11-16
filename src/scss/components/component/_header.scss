@@ -1,0 +1,10 @@
+$header-padding: 10px 20px !default;
+$header-bg: darken($primary, 2%) !default;
+$header-shadow: 0 0 20px 5px rgba($secondary, .4);
+
+header {
+  position: relative;
+  padding: $header-padding;
+  background: $header-bg;
+  box-shadow: $header-shadow;
+}

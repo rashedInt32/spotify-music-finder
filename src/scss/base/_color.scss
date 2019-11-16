@@ -4,8 +4,8 @@
 
 // SETUP
 //// Base
-$primary: #4A90E2!default;
-$secondary: #0E1C2D!default;
+$primary: #0C1027!default;
+$secondary: #059BAD!default;
 $black: #000000!default;
 $darkgrey: #9B9B9B!default;
 $lightgrey: #EEEEEE!default;
@@ -40,7 +40,7 @@ $colors: (
 //// Links
 a {
 	color: $primary;
-    text-decoration: none;    
+    text-decoration: none;
     &.link-secondary {color: $secondary;}
 	a:link a:visited {color: inherit;}
 }
@@ -64,7 +64,7 @@ a:not([href]):not([tabindex]) {
 @each $name, $color in $colors {
 	.fc-#{$name} {
 		color: #{$color}!important;
-	} 
+	}
 	.bg-#{$name} {
 		background-color: #{$color}!important;
 	}
@@ -83,7 +83,7 @@ a:not([href]):not([tabindex]) {
 	a {
 		-webkit-transition: all .2s ease;
 		-moz-transition: all .2s ease;
-		transition: all .2s ease;	
+		transition: all .2s ease;
 		&.link-secondary:hover {color: lighten($secondary, 15%);}
 	}
 }
