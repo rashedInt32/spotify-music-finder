@@ -7151,6 +7151,8 @@ header {
         position: absolute;
         right: -15px;
         top: 5px; }
+    .track-card .meta .artist span:last-child small {
+      display: none; }
 
 .embed-responsive {
   position: relative;

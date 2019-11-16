@@ -24,6 +24,7 @@ $track-bg: darken($primary, 3%);
   .meta {
     padding-top: 10px;
     font-size: 14px;
+
     > span {
       position: relative;
       color: $secondary;
@@ -43,7 +44,14 @@ $track-bg: darken($primary, 3%);
         right: -15px;
         top: 5px;
       }
+    }
 
+    .artist {
+      span {
+        &:last-child {
+          small {display: none;}
+        }
+      }
     }
   }
 }

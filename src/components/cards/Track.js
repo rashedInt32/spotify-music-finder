@@ -6,10 +6,13 @@ const Track = ({ name, album, artists, onClickTrack }) => {
       <h6>{name}</h6>
       <div className="meta">
         <span>Album: {album}</span>
-        <span>
+        <span className="artist">
           Artist:
           {artists &&
-            artists.map((artist, i) => <span key={i}>{artist.name}</span>)}
+            artists.map((artist, i) => <span
+              key={i}>
+              {artist.name}<small>, </small>
+            </span>)}
         </span>
       </div>
     </div>
