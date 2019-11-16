@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import to from "await-to-js";
-import SpotifyWebApi from "spotify-web-api-js";
+import { spotifyApi } from '../utils/spotify';
+
 
 import { getToken } from "../utils/getToken";
 
@@ -17,12 +18,11 @@ function Home({ history }) {
   });
 
   useEffect(() => {
-    getPlaylist();
+    getFeaturedPlaylist();
   }, []);
 
-  const spotifyApi = new SpotifyWebApi();
 
-  const getPlaylist = async () => {
+  const getFeaturedPlaylist = async () => {
     setPlaylists({ ...playlists, loading: true });
 
     const token = getToken();
@@ -43,8 +43,10 @@ function Home({ history }) {
       items: response.playlists.items
     });
 
-    history.push("/");
+    //history.push("/");
   };
+
+  const handleCardClick = (id) => history.push(`/playlist/${id}`)
 
   return (
     <Layout loading={playlists.loading}>
@@ -56,6 +58,7 @@ function Home({ history }) {
               name={playlist.name}
               image={playlist.images[0].url}
               numberOfTrack={playlist.tracks.total}
+              onClickCard={() => handleCardClick(playlist.id)}
             />
           </Col>
         ))}
