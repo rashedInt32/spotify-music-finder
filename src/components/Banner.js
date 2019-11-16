@@ -26,7 +26,7 @@ const Banner = ({ image, name, artist, description, loading }) => {
                 Artist:
                 <b> {artist}</b>
               </p>
-              <p>{description}</p>
+              <p dangerouslySetInnerHTML={{__html: description}}></p>
             </Col>
           </Row>
         )}

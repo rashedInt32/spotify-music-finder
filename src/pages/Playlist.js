@@ -5,7 +5,7 @@ import { spotifyApi } from "../utils/spotify";
 
 import Layout from "../hoc/Layout";
 import Banner from "../components/Banner";
-import Track from '../components/cards/Track';
+import Track from "../components/cards/Track";
 
 function Playlist({ history, match, location }) {
   const [playlist, setPlaylist] = useState({
@@ -13,15 +13,26 @@ function Playlist({ history, match, location }) {
     data: {}
   });
 
+  // Playlist id from url params
+  const { id } = match.params;
+
   useEffect(() => {
     getPlaylist();
   }, []);
 
+  /**
+   * getPlaylist
+   * @desc send request to api to get Playlist details.
+   * Verify access_toekn before api call with location.state.token
+   * props  which passed from home page
+   * Populate state with response data
+   */
   const getPlaylist = async () => {
     setPlaylist({ ...playlist, loading: true });
+
     spotifyApi.setAccessToken(location.state.token);
 
-    const [err, response] = await to(spotifyApi.getPlaylist(match.params.id));
+    const [err, response] = await to(spotifyApi.getPlaylist(id));
 
     if (err) return err;
 
@@ -31,8 +42,14 @@ function Playlist({ history, match, location }) {
     });
   };
 
-  const handleClickTrack = (track) => history.push(`/track/${track.id}`, { track });
-
+  /**
+   * handleCardTrack
+   * @desc when click track card change route to
+   * track single page, pass track also to get details on single page
+   * @param {track} Object track details
+   */
+  const handleClickTrack = track =>
+    history.push(`/track/${track.id}`, { track });
 
   const { images, name, owner, description, tracks } = playlist.data;
 

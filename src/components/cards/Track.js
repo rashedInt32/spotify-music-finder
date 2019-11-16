@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Track = ({ name, album, artists, onClickTrack }) => {
   return (
@@ -8,9 +8,8 @@ const Track = ({ name, album, artists, onClickTrack }) => {
         <span>Album: {album}</span>
         <span>
           Artist:
-          {artists && artists.map((artist,i) => (
-            <span key={i}>{artist.name}</span>
-          ))}
+          {artists &&
+            artists.map((artist, i) => <span key={i}>{artist.name}</span>)}
         </span>
       </div>
     </div>

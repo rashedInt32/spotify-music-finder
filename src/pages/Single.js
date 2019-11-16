@@ -1,21 +1,12 @@
-import React, {useState} from 'react';
-import moment from 'moment';
-
-import Row from '../components/ui/Row';
-import Col from '../components/ui/Col';
-
-//Name, image, artists, Album and duration
+import React, { useState } from "react";
+import moment from "moment";
 
 function Single({ location, history }) {
   const [track] = useState(location.state.track);
 
   const { name, album, popularity, artists, duration_ms } = track;
 
-  const style = {
-    background: `url(${album.images[0].url}) center center no-repeat`,
-    backgroundSize: "cover"
-  };
-
+  // Go back to previous page
   const goBack = () => history.goBack();
 
   return (
@@ -27,6 +18,7 @@ function Single({ location, history }) {
         <div className="container single">
           <img src={album.images[0].url} alt="" />
           <h2>{name}</h2>
+
           <h5 className="pb-10 fc-secondary">
             Artist:{" "}
             {artists.map((artist, i) => (
@@ -37,7 +29,7 @@ function Single({ location, history }) {
             ))}
           </h5>
 
-          <p className="  d-block">Album: {album.name}</p>
+          <p>Album: {album.name}</p>
           <p>
             Duration: <b>{moment(duration_ms).format("m:s")}m</b>
           </p>

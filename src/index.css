@@ -7105,6 +7105,8 @@ header {
     padding-top: 10px; }
   .banner h5 {
     color: #FFFFFF; }
+  .banner p a {
+    color: #FFFFFF; }
   .banner .artist:last-child small {
     display: none; }
   .banner .back {
